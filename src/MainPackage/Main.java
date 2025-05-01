@@ -29,7 +29,7 @@ public class Main {
         window.setLocationRelativeTo(null);
         window.setVisible(true); //После настройки окна разрешаем пользователю видеть программу
 
-        //Запуск погтока игровой панели
+        //Запуск потока игровой панели
         gamePanel.startGameThread();
     }
 }

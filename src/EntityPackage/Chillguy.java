@@ -20,6 +20,9 @@ public class Chillguy extends Entity{
 
         this.gp = gp;
         this.keyH = keyH;
+        //Параметры хитбокса игрока, чтобы он не бился об стену сразу
+        solidArea = new Rectangle(8, 16, 32, 32);
+
         setDefaultValues();
         getPlayerImage();
 
@@ -60,19 +63,36 @@ public class Chillguy extends Entity{
     }
 
     public void update(){
+        if(keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) {
         //Формула ходьбы для игрока
         if(keyH.upPressed){
             direction = "up";
-            y -= speed;
         }else if(keyH.downPressed){
             direction = "down";
-            y += speed;
         }else if(keyH.leftPressed){
             direction = "left";
-            x -= speed;
         }else if(keyH.rightPressed){
             direction = "right";
-            x += speed;
+        }
+        /*Проверка коллизии игрока Chillguy на текстуры карты или взаимодей. объекта.*/
+        collisionOn = false;
+        gp.collisionCheck.checkTile(this);
+        //Можно наступать на плитки:
+        if(!collisionOn){
+            switch (direction) {
+
+                case "up": y -= speed; break;
+                case "down":
+                    y += speed;
+                    break;
+                case "left":
+                    x -= speed;
+                    break;
+                case "right":
+                    x += speed;
+                    break;
+                }
+            }
         }
         /*Цикл итераций спрайтов при ходьбе персонажа.*/
         spriteCounter++;
