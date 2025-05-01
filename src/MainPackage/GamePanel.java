@@ -5,6 +5,7 @@ package MainPackage;
 * по сути здесь и идет настройка окна интерфейса графики.*/
 
 import EntityPackage.Chillguy;
+import ObjectPackage.Object;
 import tile.TileManager;
 
 import javax.swing.JPanel;
@@ -49,7 +50,10 @@ public class GamePanel extends JPanel implements Runnable{
     TileManager tileM = new TileManager(this);
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
+    public CollisionCheck collisionCheck = new CollisionCheck(this); //Проверка клеток на коллизию
+    public AssetSet assetSet = new AssetSet(this); //Запуск загрузки объектов
     Chillguy chillguy = new Chillguy(this, keyH); //Запуск объекта сущности игрока
+    public Object obj[] = new Object[1]; //Где [1] - это количество объектов
 
     //Конструктор для GamePanel
     public GamePanel(){
@@ -64,6 +68,12 @@ public class GamePanel extends JPanel implements Runnable{
         this.addKeyListener(keyH);
         //Указываем, чтобы панель "ожидала" получение ключа клавишы keyH
         this.setFocusable(true);
+
+    }
+    //Метод setupGame ля настройки NPC и объектов (предметов)
+    public void setupGame(){
+
+        assetSet.setObject(); //Настройка объектов
 
     }
 
@@ -139,6 +149,12 @@ public class GamePanel extends JPanel implements Runnable{
         Graphics2D g2 = (Graphics2D)g; //Перезапись объекта g под формат Graphic2D
         //Запись плиток как ячейка матрицы (карты)
         tileM.draw(g2);
+        //Запись объектов локации как объект (вывод обязательно выполняется по очереди!)
+        for(int i = 0; i < obj.length; i++){
+            //Вывод на экран, если объект (т.е. его изображение) существует
+            if(obj[i] != null) obj[i].draw(g2, this);
+
+        }
         //Запись фигуры как объект
         chillguy.draw(g2);
         g2.dispose(); //Показать объект
