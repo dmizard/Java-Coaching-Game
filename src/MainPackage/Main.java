@@ -28,12 +28,8 @@ public class Main {
 
         window.setLocationRelativeTo(null);
         window.setVisible(true); //После настройки окна разрешаем пользователю видеть программу
-<<<<<<< HEAD
-
-=======
         //Ранняя настройка объектов и NPC
         gamePanel.setupGame();
->>>>>>> 7b7ffb2 (Добавлены текстуры объектов и карты.)
         //Запуск потока игровой панели
         gamePanel.startGameThread();
     }

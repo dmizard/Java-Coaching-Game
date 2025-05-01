@@ -5,6 +5,7 @@ package MainPackage;
 * по сути здесь и идет настройка окна интерфейса графики.*/
 
 import EntityPackage.Chillguy;
+import EntityPackage.Entity;
 import ObjectPackage.Object;
 import tile.TileManager;
 
@@ -50,14 +51,11 @@ public class GamePanel extends JPanel implements Runnable{
     TileManager tileM = new TileManager(this);
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
-<<<<<<< HEAD
-    public CollisionCheck collisionCheck = new CollisionCheck(this);
-=======
     public CollisionCheck collisionCheck = new CollisionCheck(this); //Проверка клеток на коллизию
     public AssetSet assetSet = new AssetSet(this); //Запуск загрузки объектов
->>>>>>> 7b7ffb2 (Добавлены текстуры объектов и карты.)
     Chillguy chillguy = new Chillguy(this, keyH); //Запуск объекта сущности игрока
     public Object obj[] = new Object[1]; //Где [1] - это количество объектов
+    public Entity npc[] = new Entity[1]; //Где [1] - это количество NPC
 
     //Конструктор для GamePanel
     public GamePanel(){
@@ -78,6 +76,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void setupGame(){
 
         assetSet.setObject(); //Настройка объектов
+        assetSet.setNPC(); //Настройка NPC
 
     }
 
@@ -159,9 +158,15 @@ public class GamePanel extends JPanel implements Runnable{
             if(obj[i] != null) obj[i].draw(g2, this);
 
         }
-        //Запись фигуры как объект
+        //Запись NPC как существо
+        for(int i = 0; i < npc.length; i++){
+            //Вывод на экран, если NPC (т.е. его изображение) существует
+            if(npc[i] != null) npc[i].draw(g2);
+
+        }
+        //Запись игрока как существо
         chillguy.draw(g2);
-        g2.dispose(); //Показать объект
+        g2.dispose(); //Показать объекты и существа
 
     }
 }
