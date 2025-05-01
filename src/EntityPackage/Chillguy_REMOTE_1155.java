@@ -83,10 +83,19 @@ public class Chillguy extends Entity{
             switch (direction) {
 
                 case "up": y -= speed; break;
+                case "down":
+                    y += speed;
+                    break;
+                case "left":
+                    x -= speed;
+                    break;
+                case "right":
+
+                case "up": y -= speed; break;
                 case "down": y += speed; break;
                 case "left": x -= speed; break;
                 case "right": x += speed; break;
-
+                    break;
                 }
             }
         }
