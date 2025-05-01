@@ -26,7 +26,7 @@ public class AssetSet {
         //Задаем координаты NPC, где он находится
         gp.npc[0] = new Romanchenko(gp);
         gp.npc[0].x = 3 * gp.tileSize;
-        gp.npc[0].y = 1 * gp.tileSize;
+        gp.npc[0].y = gp.tileSize;
 
     }
 

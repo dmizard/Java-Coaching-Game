@@ -24,7 +24,10 @@ import java.awt.event.KeyListener;
 
 public class KeyHandler implements KeyListener {
 
+    GamePanel gp;
     public boolean upPressed, downPressed, leftPressed, rightPressed;
+
+    public KeyHandler(GamePanel gp){ this.gp = gp;}
 
     @Override
     public void keyTyped(KeyEvent e) {}
@@ -34,19 +37,24 @@ public class KeyHandler implements KeyListener {
     public void keyPressed(KeyEvent e) {
 
         int code = e.getKeyCode(); //Ловит нажатую клавишу
-        if(code == KeyEvent.VK_UP){
-            upPressed = true;
+        if(gp.gameState == gp.playState) {
+            if (code == KeyEvent.VK_UP) {
+                upPressed = true;
+            } else if (code == KeyEvent.VK_DOWN) {
+                downPressed = true;
+            } else if (code == KeyEvent.VK_LEFT) {
+                leftPressed = true;
+            } else if (code == KeyEvent.VK_RIGHT) {
+                rightPressed = true;
+            }
+        }else if(gp.gameState == gp.dialogueState){
+            if(code == KeyEvent.VK_Z){
+                if(gp.dialogueIndex != 21) {
+                    gp.npc[0].speak();
+                    gp.dialogueIndex++;
+                }else{ gp.gameState = gp.playState; }
+            }
         }
-        else if(code == KeyEvent.VK_DOWN){
-            downPressed = true;
-        }
-        else if(code == KeyEvent.VK_LEFT){
-            leftPressed = true;
-        }
-        else if(code == KeyEvent.VK_RIGHT){
-            rightPressed = true;
-        }
-
     }
 
     //Метод отпущенной клавишы
