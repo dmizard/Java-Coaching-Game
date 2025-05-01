@@ -61,9 +61,8 @@ public class TileManager {
     public void loadMap(String filePath){
 
         try{
-
-            InputStream is = getClass().getResourceAsStream(filePath);
-            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+            //Считывание файла с матрицей (обязательно буферизированного, для работы с потоком в draw)!
+            BufferedReader br = new BufferedReader(new FileReader(filePath));
 
             int col = 0;
             int row = 0;
