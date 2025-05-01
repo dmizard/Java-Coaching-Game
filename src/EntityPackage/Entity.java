@@ -4,7 +4,7 @@ package EntityPackage;
  * все NPC - Non-playable characters, а также сами
  *  игроки (в нашем случае он один).*/
 
-
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 //Основной класс существ
@@ -18,5 +18,7 @@ public class Entity {
     //Чередование спрайтов изображений персонажа/существа
     public int spriteCounter = 0;
     public int spriteNum = 1;
+    public Rectangle solidArea;
+    public boolean collisionOn = false;
 
 }

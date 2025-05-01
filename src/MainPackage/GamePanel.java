@@ -49,6 +49,7 @@ public class GamePanel extends JPanel implements Runnable{
     TileManager tileM = new TileManager(this);
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
+    public CollisionCheck collisionCheck = new CollisionCheck(this);
     Chillguy chillguy = new Chillguy(this, keyH); //Запуск объекта сущности игрока
 
     //Конструктор для GamePanel
