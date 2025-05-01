@@ -13,12 +13,13 @@ import java.io.IOException;
 
 public class Chillguy extends Entity{
 
-    GamePanel gp;
     KeyHandler keyH;
 
     public Chillguy(GamePanel gp, KeyHandler keyH){
+        /*Вызов конструктора Entity (чертежа для класса игрока Chillguy,
+         * иначе этот класс не получит GamePanel gp)*/
+        super(gp);
 
-        this.gp = gp;
         this.keyH = keyH;
         //Параметры хитбокса игрока, чтобы он не бился об стену сразу
         solidArea = new Rectangle(8, 16, 32, 32);
@@ -29,9 +30,9 @@ public class Chillguy extends Entity{
     }
 
     public void setDefaultValues(){
-        //Стандартные параметры игрока
-        x = 100;
-        y = 100;
+        //Стандартные параметры игрока (начальные для координат - место спавна)
+        x = 420;
+        y = 280;
         speed = 3; //Мне кажется, что 3 - самое оптимальное (4 это много, а 2 о-о-очень медленно!)
         direction = "down";
 

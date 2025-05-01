@@ -16,7 +16,7 @@ public class TileManager {
 
         this.gp = gp;
 
-        tile = new Tile[14];
+        tile = new Tile[15]; //15 - Количество плиток плюс 1 (т.е. у нас 14 плиток)
         //Считывание матрицы карты
         mapTileNumber = new int[gp.maxScreenColumn][gp.maxScreenRow];
 
@@ -70,6 +70,9 @@ public class TileManager {
             tile[13] = new Tile();
             tile[13].image = ImageIO.read(new File("res/deftiles/deftiles_computerplace_table.png"));
             tile[13].collision = true;
+            tile[14] = new Tile();
+            tile[14].image = ImageIO.read(new File("res/deftiles/deftiles_trench.png"));
+            tile[14].collision = true;
 
         }catch (IOException e){
 
