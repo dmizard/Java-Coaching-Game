@@ -32,7 +32,7 @@ public class Chillguy extends Entity{
         //Стандартные параметры игрока
         x = 100;
         y = 100;
-        speed = 3;
+        speed = 3; //Мне кажется, что 3 - самое оптимальное (4 это много, а 2 о-о-очень медленно!)
         direction = "down";
 
     }
@@ -82,6 +82,7 @@ public class Chillguy extends Entity{
             switch (direction) {
 
                 case "up": y -= speed; break;
+<<<<<<< HEAD
                 case "down":
                     y += speed;
                     break;
@@ -91,6 +92,12 @@ public class Chillguy extends Entity{
                 case "right":
                     x += speed;
                     break;
+=======
+                case "down": y += speed; break;
+                case "left": x -= speed; break;
+                case "right": x += speed; break;
+
+>>>>>>> 7b7ffb2 (Добавлены текстуры объектов и карты.)
                 }
             }
         }

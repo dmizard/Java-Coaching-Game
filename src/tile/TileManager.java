@@ -16,7 +16,7 @@ public class TileManager {
 
         this.gp = gp;
 
-        tile = new Tile[10];
+        tile = new Tile[14];
         //Считывание матрицы карты
         mapTileNumber = new int[gp.maxScreenColumn][gp.maxScreenRow];
 
@@ -58,6 +58,21 @@ public class TileManager {
             tile[9] = new Tile();
             tile[9].image = ImageIO.read(new File("res/deftiles/deftiles_door_open.png"));
             tile[9].collision = true;
+<<<<<<< HEAD
+=======
+            tile[10] = new Tile();
+            tile[10].image = ImageIO.read(new File("res/deftiles/deftiles_brazhkin.png"));
+            tile[10].collision = true;
+            tile[11] = new Tile();
+            tile[11].image = ImageIO.read(new File("res/deftiles/deftiles_computerplace_away.png"));
+            tile[11].collision = true;
+            tile[12] = new Tile();
+            tile[12].image = ImageIO.read(new File("res/deftiles/deftiles_computerplace_empty.png"));
+            tile[12].collision = true;
+            tile[13] = new Tile();
+            tile[13].image = ImageIO.read(new File("res/deftiles/deftiles_computerplace_table.png"));
+            tile[13].collision = true;
+>>>>>>> 7b7ffb2 (Добавлены текстуры объектов и карты.)
 
         }catch (IOException e){
 
