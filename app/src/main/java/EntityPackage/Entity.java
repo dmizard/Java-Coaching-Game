@@ -5,7 +5,7 @@ package EntityPackage;
  *  игроки (в нашем случае он один).*/
 
 import MainPackage.GamePanel;
-import java.awt.Rectangle;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
@@ -24,12 +24,15 @@ public class Entity {
     public int spriteNum = 1;
     public Rectangle solidArea;
     public boolean collisionOn = false;
+    String[] dialogue = new String[21];
 
     public Entity(GamePanel gp){
 
         this.gp = gp;
 
     }
+
+    public void speak(){} //Абстрактный метод для записи диалоговых текстов
 
     public void draw(Graphics2D g2){
         /*Для всех существ обозначим начальное изображение со статусом

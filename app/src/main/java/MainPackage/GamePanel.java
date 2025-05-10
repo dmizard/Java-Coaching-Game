@@ -40,6 +40,11 @@ public class GamePanel extends JPanel implements Runnable{
     public final int screenWidth = tileSize * maxScreenColumn;
     public final int screenHeigth = tileSize * maxScreenRow;
 
+    //Параметры состояния нужны, чтобы обработать типы сценария в самой игре
+    public int gameState = 1;
+    public final int playState = 1;
+    public final int dialogueState = 2;
+
     /*Сама игра работает по принципу старой анимации мультиков.
     * Мы не двигаем объекты напрямую, они покадрово считаны как
     * статичные объекты. Поэтому чтобы создать понятие "время"
@@ -49,13 +54,16 @@ public class GamePanel extends JPanel implements Runnable{
     int FPS = 60;
 
     TileManager tileM = new TileManager(this);
-    KeyHandler keyH = new KeyHandler();
+    KeyHandler keyH = new KeyHandler(this);
     Thread gameThread;
-    public CollisionCheck collisionCheck = new CollisionCheck(this);
+    public CollisionCheck collisionCheck = new CollisionCheck(this); //Проверка клеток на коллизию
     public AssetSet assetSet = new AssetSet(this); //Запуск загрузки объектов
+    public UI ui = new UI(this); //Запуск UI для диалога
     Chillguy chillguy = new Chillguy(this, keyH); //Запуск объекта сущности игрока
-    public Object obj[] = new Object[1]; //Где [1] - это количество объектов
-    public Entity npc[] = new Entity[1]; //Где [1] - это количество NPC
+    public Object[] obj = new Object[1]; //Где [1] - это количество объектов
+    public Entity[] npc = new Entity[1]; //Где [1] - это количество NPC
+    public int dialogueIndex = 0;
+    public int interacted = 0;
 
     //Конструктор для GamePanel
     public GamePanel(){
@@ -131,7 +139,7 @@ public class GamePanel extends JPanel implements Runnable{
                 drawCount++;
             }
             if (timer >= 1000000000){
-                System.out.println("Кадров в секунду: " + drawCount);
+                System.out.println("Frames per second: " + drawCount);
                 drawCount = 0;
                 timer = 0;
             }
@@ -142,7 +150,13 @@ public class GamePanel extends JPanel implements Runnable{
 
         //Здесь происходит изменение координат, по формуле скорости игрока
         chillguy.update();
-
+        //Проверка на вазимодействие с NPC
+        for(int i = 0; i < npc.length; i++){
+            if(((chillguy.x - npc[0].x) <= 50 && (chillguy.y - npc[0].y) <= 50) && (interacted == 0)){
+                gameState = dialogueState; //Обновление статуса на диалоговый
+                interacted = 1; //Взаимодействие произошло и больше не обновится (Нельзя повторить)
+            }
+        }
     }
 
     public void paintComponent(Graphics g){
@@ -166,6 +180,8 @@ public class GamePanel extends JPanel implements Runnable{
         }
         //Запись игрока как существо
         chillguy.draw(g2);
+        //Запись наложенного интерфейса игрока
+        ui.draw(g2);
         g2.dispose(); //Показать объекты и существа
 
     }

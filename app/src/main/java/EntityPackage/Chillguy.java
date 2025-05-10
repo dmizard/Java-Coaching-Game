@@ -42,18 +42,18 @@ public class Chillguy extends Entity{
 
         try {
 
-            upDef = ImageIO.read(new File("res/chillboy/mnatsakanyan_default_2.png"));
-            up1 = ImageIO.read(new File("res/chillboy/mnatsakanyan_walkup_1.png"));
-            up2 = ImageIO.read(new File("res/chillboy/mnatsakanyan_walkup_2.png"));
-            downDef = ImageIO.read(new File("res/chillboy/mnatsakanyan_default_1.png"));
-            down1 = ImageIO.read(new File("res/chillboy/mnatsakanyan_walkdown_1.png"));
-            down2 = ImageIO.read(new File("res/chillboy/mnatsakanyan_walkdown_2.png"));
-            leftDef = ImageIO.read(new File("res/chillboy/mnatsakanyan_left_default.png"));
-            left1 = ImageIO.read(new File("res/chillboy/mnatsakanyan_walkleft_1.png"));
-            left2 = ImageIO.read(new File("res/chillboy/mnatsakanyan_walkleft_2.png"));
-            rightDef = ImageIO.read(new File("res/chillboy/mnatsakanyan_right_default.png"));
-            right1 = ImageIO.read(new File("res/chillboy/mnatsakanyan_walkright_1.png"));
-            right2 = ImageIO.read(new File("res/chillboy/mnatsakanyan_walkright_2.png"));
+            upDef = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_default_2.png"));
+            up1 = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_walkup_1.png"));
+            up2 = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_walkup_2.png"));
+            downDef = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_default_1.png"));
+            down1 = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_walkdown_1.png"));
+            down2 = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_walkdown_2.png"));
+            leftDef = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_left_default.png"));
+            left1 = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_walkleft_1.png"));
+            left2 = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_walkleft_2.png"));
+            rightDef = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_right_default.png"));
+            right1 = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_walkright_1.png"));
+            right2 = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_walkright_2.png"));
 
         }catch(IOException e){
 
@@ -83,19 +83,10 @@ public class Chillguy extends Entity{
             switch (direction) {
 
                 case "up": y -= speed; break;
-                case "down":
-                    y += speed;
-                    break;
-                case "left":
-                    x -= speed;
-                    break;
-                case "right":
-
-                case "up": y -= speed; break;
                 case "down": y += speed; break;
                 case "left": x -= speed; break;
                 case "right": x += speed; break;
-                    break;
+
                 }
             }
         }
