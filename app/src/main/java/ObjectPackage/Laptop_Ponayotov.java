@@ -14,7 +14,7 @@ public class Laptop_Ponayotov extends Object{
 
         try{
             //Загрузка изображения
-            image = ImageIO.read(new File("src\\main\\resources\\objects\\laptop_ponayotov.png"));
+            image = ImageIO.read(getClass().getResourceAsStream("/objects/laptop_ponayotov.png"));
 
         }catch (IOException e){
 

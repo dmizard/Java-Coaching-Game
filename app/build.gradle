@@ -31,6 +31,12 @@ tasks.withType(Javadoc) {
     options.addStringOption('Xdoclint:none', '-quiet')  // Отключает проверки doclint
 }
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'MainPackage.Main'
+    }
+}
+
 sourceSets {
     main {
         java {

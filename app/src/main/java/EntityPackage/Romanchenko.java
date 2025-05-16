@@ -31,7 +31,7 @@ public class Romanchenko extends Entity{
 
         try {
 
-            def = ImageIO.read(new File("src\\main\\resources\\npc\\romanchenko_base.png"));
+            def = ImageIO.read(getClass().getResourceAsStream("/npc/romanchenko_base.png"));
 
         }catch(IOException e){
 

@@ -42,18 +42,18 @@ public class Chillguy extends Entity{
 
         try {
 
-            upDef = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_default_2.png"));
-            up1 = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_walkup_1.png"));
-            up2 = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_walkup_2.png"));
-            downDef = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_default_1.png"));
-            down1 = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_walkdown_1.png"));
-            down2 = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_walkdown_2.png"));
-            leftDef = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_left_default.png"));
-            left1 = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_walkleft_1.png"));
-            left2 = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_walkleft_2.png"));
-            rightDef = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_right_default.png"));
-            right1 = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_walkright_1.png"));
-            right2 = ImageIO.read(new File("src\\main\\resources\\chillboy\\mnatsakanyan_walkright_2.png"));
+            upDef = ImageIO.read(getClass().getResourceAsStream("/chillboy/mnatsakanyan_default_2.png"));
+            up1 = ImageIO.read(getClass().getResourceAsStream("/chillboy/mnatsakanyan_walkup_1.png"));
+            up2 = ImageIO.read(getClass().getResourceAsStream("/chillboy/mnatsakanyan_walkup_2.png"));
+            downDef = ImageIO.read(getClass().getResourceAsStream("/chillboy/mnatsakanyan_default_1.png"));
+            down1 = ImageIO.read(getClass().getResourceAsStream("/chillboy/mnatsakanyan_walkdown_1.png"));
+            down2 = ImageIO.read(getClass().getResourceAsStream("/chillboy/mnatsakanyan_walkdown_2.png"));
+            leftDef = ImageIO.read(getClass().getResourceAsStream("/chillboy/mnatsakanyan_left_default.png"));
+            left1 = ImageIO.read(getClass().getResourceAsStream("/chillboy/mnatsakanyan_walkleft_1.png"));
+            left2 = ImageIO.read(getClass().getResourceAsStream("/chillboy/mnatsakanyan_walkleft_2.png"));
+            rightDef = ImageIO.read(getClass().getResourceAsStream("/chillboy/mnatsakanyan_right_default.png"));
+            right1 = ImageIO.read(getClass().getResourceAsStream("/chillboy/mnatsakanyan_walkright_1.png"));
+            right2 = ImageIO.read(getClass().getResourceAsStream("/chillboy/mnatsakanyan_walkright_2.png"));
 
         }catch(IOException e){
 
