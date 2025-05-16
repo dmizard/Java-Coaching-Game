@@ -26,6 +26,11 @@ tasks.withType(JavaCompile) {
     options.compilerArgs += ['-Xlint:unchecked']
 }
 
+tasks.withType(Javadoc) {
+    options.encoding = 'UTF-8'  // Обязательно для корректного отображения кириллицы
+    options.addStringOption('Xdoclint:none', '-quiet')  // Отключает проверки doclint
+}
+
 sourceSets {
     main {
         java {
